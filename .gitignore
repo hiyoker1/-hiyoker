@@ -1,0 +1,52 @@
+# ===========================
+# Java / Maven
+# ===========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ===========================
+# IDEA
+# ===========================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# ===========================
+# Vue / Node
+# ===========================
+yoker-frontend/node_modules/
+yoker-frontend/dist/
+yoker-frontend/.vite/
+yoker-frontend/.env.local
+yoker-frontend/.env.*.local
+
+# ===========================
+# 日志
+# ===========================
+logs/
+*.log
+npm-debug.log*
+
+# ===========================
+# 系统文件
+# ===========================
+.DS_Store
+Thumbs.db
+
+# ===========================
+# 本地配置（不提交敏感信息）
+# ===========================
+**/application-local.yml
+**/application-prod.yml
