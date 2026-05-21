@@ -14,8 +14,6 @@ spring:
           uri: lb://yoker-auth
           predicates:
             - Path=/auth/**
-          filters:
-            - StripPrefix=1
         - id: yoker-system
           uri: lb://yoker-system
           predicates:
