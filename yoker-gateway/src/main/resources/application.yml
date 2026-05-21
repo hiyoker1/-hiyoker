@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: yoker-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: yoker-auth
+          uri: lb://yoker-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: yoker-system
+          uri: lb://yoker-system
+          predicates:
+            - Path=/system/**
+          filters:
+            - StripPrefix=1
+      # 跨域
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+
+# 白名单（不需要 Token 的接口）
+white-list:
+  urls:
+    - /auth/login
